@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  </head>
+
+  <body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Blog</a>
+      <% if user_signed_in? %>
+        <ul class="user_nav grid-6">
+          <li><a class="post" href="/blogs/new">New</a></li>
+          <li><%= link_to "Sign out", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      <% else %>
+        <ul class="grid-6">
+          <li><%= link_to "Sign in", new_user_session_path, class: 'post' %></li>
+          <li><%= link_to "Sign up", new_user_registration_path, class: 'post' %></li>
+        </ul>
+      <% end %>
+    </div>
+  </nav>
+
+    <%= yield %>
+    
+  </body>
+</html>
+
+  <%# <div class="user_nav grid-6"> %>
+  <%# </div> %>
+  <%# <div class="grid-6"> %>
+  <%# </div>/ %>
+

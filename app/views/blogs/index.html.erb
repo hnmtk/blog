@@ -1,0 +1,9 @@
+  <div class="contents row" >
+    <% @comments.each do |comment| %>
+      <%= render partial: "article", locals: {comment: comment} %>
+    <% end %>
+    <div id=paginate>
+      <%= paginate(@comments)%>
+    </div>
+  </div>
+<script type="text/javascript" src="./app.js"></script>
